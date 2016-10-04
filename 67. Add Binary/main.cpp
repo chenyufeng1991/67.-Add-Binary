@@ -62,13 +62,18 @@ string addBinary(string a, string b)
         }
     }
 
+    reverse(result.begin(), result.end());
+    vector<char>::iterator resultIte = result.begin();
+    if (result[0] == '0')
+    {
+        result.erase(resultIte);
+    }
+
     string resultStr;
-    for (int i = 0; i < lengthR; i++)
+    for (int i = 0; i < result.size(); i++)
     {
         resultStr += result[i];
     }
-
-    reverse(resultStr.begin(), resultStr.end());
 
     return resultStr;
 }
@@ -76,7 +81,7 @@ string addBinary(string a, string b)
 int main(int argc, const char * argv[])
 {
 
-    string ss = addBinary("111", "10");
+    string ss = addBinary("0", "0");
     cout << ss;
 
     return 0;
