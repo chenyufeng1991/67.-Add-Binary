@@ -38,6 +38,24 @@ string addBinary(string a, string b)
     // 逆转后再进行加运算
     reverse(A.begin(), A.end());
     reverse(B.begin(), B.end());
+
+    if (a.length() >= b.length())
+    {
+        long temp = a.length() - b.length();
+        while (temp--)
+        {
+            B.push_back('0');
+        }
+    }
+    else
+    {
+        long temp = b.length() - a.length();
+        while (temp--)
+        {
+            A.push_back('0');
+        }
+    }
+
     for (int i = 0; i < lengthR - 1; i++)
     {
         if (A[i] == '1' && B[i] == '1')
@@ -80,15 +98,8 @@ string addBinary(string a, string b)
 
 int main(int argc, const char * argv[])
 {
-
-    string ss = addBinary("0", "0");
+    string ss = addBinary("100", "110010");
     cout << ss;
 
     return 0;
 }
-
-
-
-
-
-
